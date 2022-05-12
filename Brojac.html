@@ -1,0 +1,244 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head>    
+    <meta charset="UTF-8"> 
+    <style>   
+         body { 
+             background-color: rgba(48, 82, 62, 0.562);
+         }
+        #test { 
+            display: block; 
+            width: 100px; 
+            height: 195px;
+        }
+       .broj-wrap { 
+           position: relative;  
+           margin-left: 700px;
+           width: 100px; 
+           height: 195px; 
+           display: block;
+        } 
+      .broj-seg { 
+          position: absolute;   
+          display: block; 
+          background-color: rgb(37, 121, 133);  
+          box-shadow: 0 0 15px rgb(181, 196, 204) ;
+          
+       } 
+       .seg-1 {  
+           top: 0;
+          width: 90px; 
+          height: 5px; 
+          
+       } 
+       .seg-2 {  
+           top: 10px;
+          width: 5px; 
+          height: 90px;
+       }  
+       .seg-3 {  
+           top: 10px; 
+           right: 10px;
+          width: 5px; 
+          height: 90px;
+       } 
+       .seg-4 {  
+           top: 105px; 
+          width: 90px; 
+          height: 5px;
+       } 
+       .seg-5 {  
+           top: 115px; 
+          width: 5px; 
+          height: 90px;
+       }  
+       .seg-6 {  
+           top: 115px;  
+           right: 10px;
+          width: 5px; 
+          height: 90px;
+       } 
+       .seg-7 {  
+           top: 210px; 
+          width: 90px; 
+          height: 5px;
+       }  
+       .ugasen {
+           background-color: rgba(204, 204, 204, 0.295); 
+           
+       }
+       input { 
+           margin: 10px 0 15px 660px; 
+           background-color: rgb(222, 236, 230); 
+       } 
+      
+    </style>
+
+</head> 
+ <body>
+    
+     <input id="novi-broj" type="text" placeholder="Unesi cifru"> 
+     <button onclick="promeniBroj()">Promeni</button>
+    <div id="test2"></div>
+ 
+      <script> 
+          function Brojac(id) { 
+              var mainEl = document.getElementById(id);  
+
+            var divWrap = document.createElement("div"); 
+                divWrap.className = "broj-wrap";   
+               
+            var segmenti = []; 
+             for(var i=1; i<=7; i++) {
+              var seg = document.createElement("span"); 
+                  seg.className = "broj-seg seg-"+i; 
+                  segmenti.push(seg); 
+                  divWrap.appendChild(seg);
+            }  
+
+              mainEl.appendChild(divWrap);  
+               
+              function prikazi0() { 
+                  segmenti[0].classList.remove("ugasen");  
+                  segmenti[1].classList.remove("ugasen"); 
+                  segmenti[2].classList.remove("ugasen"); 
+                  segmenti[4].classList.remove("ugasen"); 
+                  segmenti[5].classList.remove("ugasen"); 
+                  segmenti[6].classList.remove("ugasen");
+               } 
+                
+              function prikazi1() { 
+                  segmenti[2].classList.remove("ugasen");  
+                  segmenti[5].classList.remove("ugasen");
+               }  
+
+               function prikazi2() { 
+                  segmenti[0].classList.remove("ugasen");  
+                  segmenti[2].classList.remove("ugasen"); 
+                  segmenti[3].classList.remove("ugasen"); 
+                  segmenti[4].classList.remove("ugasen"); 
+                  segmenti[6].classList.remove("ugasen");
+               } 
+                
+               function prikazi3() { 
+                  segmenti[0].classList.remove("ugasen");  
+                  segmenti[2].classList.remove("ugasen"); 
+                  segmenti[3].classList.remove("ugasen"); 
+                  segmenti[5].classList.remove("ugasen"); 
+                  segmenti[6].classList.remove("ugasen");
+               } 
+               function prikazi4() { 
+                  segmenti[1].classList.remove("ugasen");  
+                  segmenti[2].classList.remove("ugasen"); 
+                  segmenti[3].classList.remove("ugasen"); 
+                  segmenti[5].classList.remove("ugasen"); 
+        
+               }   
+               function prikazi5() { 
+                  segmenti[0].classList.remove("ugasen");  
+                  segmenti[1].classList.remove("ugasen"); 
+                  segmenti[3].classList.remove("ugasen"); 
+                  segmenti[5].classList.remove("ugasen"); 
+                  segmenti[6].classList.remove("ugasen");
+               } 
+               function prikazi6() { 
+                  segmenti[1].classList.remove("ugasen");  
+                  segmenti[3].classList.remove("ugasen"); 
+                  segmenti[4].classList.remove("ugasen"); 
+                  segmenti[5].classList.remove("ugasen"); 
+                  segmenti[6].classList.remove("ugasen");
+               }  
+               function prikazi7() { 
+                  segmenti[0].classList.remove("ugasen");  
+                  segmenti[2].classList.remove("ugasen");  
+                  segmenti[5].classList.remove("ugasen");
+                 
+               }   
+               function prikazi8() { 
+                  segmenti[0].classList.remove("ugasen");  
+                  segmenti[1].classList.remove("ugasen");  
+                  segmenti[2].classList.remove("ugasen"); 
+                  segmenti[3].classList.remove("ugasen");  
+                  segmenti[4].classList.remove("ugasen");  
+                  segmenti[5].classList.remove("ugasen"); 
+                  segmenti[6].classList.remove("ugasen");
+                 
+               }  
+               function prikaziLose() { 
+        
+               }
+
+               
+              this.prikazi = function(broj) { 
+                for(var i=0; i<7; i++) { 
+                segmenti[i].classList.add("ugasen");
+                }  
+    
+                switch(broj) {  
+                    case 0: 
+                      prikazi0(); 
+                       break;
+                  case 0: 
+                      prikazi0(); 
+                       break;
+                  case 1: 
+                      prikazi1(); 
+                       break;
+
+                  case 2: 
+                     prikazi2(); 
+                      break;
+                      
+                  case 3: 
+                     prikazi3(); 
+                      break;  
+                  case 4: 
+                     prikazi4(); 
+                      break;  
+                  case 5: 
+                     prikazi5(); 
+                      break;  
+                  case 6: 
+                     prikazi6(); 
+                      break;  
+                  case 7: 
+                     prikazi7(); 
+                      break;  
+                  case 8: 
+                     prikazi8(); 
+                      break; 
+                  default:
+                  prikaziLose(); 
+                  break;
+                }
+                    
+             } 
+
+          }
+          var b1 = new Brojac("test2"); 
+          b1.prikazi("prikaziLose"); 
+           
+          function promeniBroj() { 
+              var noviBroj = parseInt(document.getElementById("novi-broj").value); 
+              b1.prikazi(noviBroj); 
+
+          }
+      </script>
+     
+  </body>
+       
+
+ 
+<body> 
+    
+    
+
+
+</body>
+
+
+
+
+
+</html>
